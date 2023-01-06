@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     // singleton
     public static GameManager instance = null;
 
-    public int turn = 0;  // 0: �÷��̾ warrior, 1: �÷��̾ monster
+    public int turn = 0;  // 0: 플레이어가 warrior, 1: 플레이어가 monster
     public float turnTime = 30.0f;
     public float currentTurnTime = 30.0f;
     public int score;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
