@@ -58,22 +58,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ScoreUp(int Health)
+    public void ScoreUp(int health)
     {
-        int plus=0;
-        if (Health >= 0 && Health < 20)
+        int plus = 0;
+        if (health >= 0 && health < 20)
         {
-            plus = (int)((-0.5) * Health + 40);
+            plus = (int)((-0.5) * health + 40);
             score += plus;
         }
-        else if (Health < 50)
+        else if (health < 50)
         {
-            plus = (int)((-1 / 3) * (Health - 20) + 30);
+            plus = (int)((-1 / 3) * (health - 20) + 30);
             score += plus;
         }
         else
         {
-            plus = (int)((-0.2) * Health + 30);
+            plus = (int)((-0.2) * health + 30);
             score += plus;
         }
         // text.text = "Score : " + score.ToString(); // UI에 점수 기록
