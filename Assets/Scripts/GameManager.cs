@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // singleton
-    public static GameManager instance = null;
+    private static GameManager instance = null;
+    public static GameManager Instance => instance;
 
     public Character[] characters;
 

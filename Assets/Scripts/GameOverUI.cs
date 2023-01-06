@@ -29,7 +29,7 @@ public class GameOverUI : MonoBehaviour
 
         // 점수 계산, 데이터 저장
        // int score = FindObjectOfType<Score>().Getfinal();
-        int score = GameManager.instance.score;
+        int score = GameManager.Instance.score;
         FindObjectOfType<GameSaveData>().SaveScore(score);
         int best = FindObjectOfType<GameSaveData>().GetMaxScore();
         Text_GameResult.text = "Score : " + score.ToString();
@@ -40,7 +40,7 @@ public class GameOverUI : MonoBehaviour
     public void OnClick_Retry()
     {
         // retry 시 점수 리셋
-        GameManager.instance.score = 0;
+        GameManager.Instance.score = 0;
         /*
 
         // 플레이어 상태 리셋
@@ -51,7 +51,7 @@ public class GameOverUI : MonoBehaviour
         */
 
         // 다시 메인씬 로드
-        SceneChange.instance.OnLoadMainScene();
+        SceneChange.Instance.OnLoadMainScene();
     }
 
     public void OnClick_Quit()

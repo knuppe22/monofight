@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     // singleton
-    public static SceneChange instance = null;
+    private static SceneChange instance = null;
+    public static SceneChange Instance => instance;
 
     private void Awake()
     {

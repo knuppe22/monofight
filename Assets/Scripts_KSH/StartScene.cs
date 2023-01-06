@@ -19,7 +19,7 @@ public class StartScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Space))
         {
-            SceneChange.instance.OnLoadMainScene();
+            SceneChange.Instance.OnLoadMainScene();
         }
     }
 }

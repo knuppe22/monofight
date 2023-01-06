@@ -7,8 +7,8 @@ public class AI : MonoBehaviour
 {
     void Update()
     {
-        Transform enemy = GameManager.instance.Enemy.transform;
-        Transform player = GameManager.instance.Player.transform;
+        Transform enemy = GameManager.Instance.Enemy.transform;
+        Transform player = GameManager.Instance.Player.transform;
 
         NavMeshAgent enemyNavmesh = enemy.GetComponent<NavMeshAgent>();
         NavMeshAgent playerNavmesh = player.GetComponent<NavMeshAgent>();

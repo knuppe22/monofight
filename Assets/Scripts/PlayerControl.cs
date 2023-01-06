@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    // singleton
+    private static PlayerControl instance = null;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +36,11 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         Debug.Log("in");
-        Character player = GameManager.instance.Player;
+        Character player = GameManager.Instance.Player;
         Transform playerTransform = player.transform;
         Rigidbody playerRigidbody = playerTransform.GetComponent<Rigidbody>();
 
-        Character enemy = GameManager.instance.Enemy;
+        Character enemy = GameManager.Instance.Enemy;
         Transform enemyTransform = enemy.transform;
         Rigidbody enemyRigidbody = enemyTransform.GetComponent<Rigidbody>();
 

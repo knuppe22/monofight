@@ -47,7 +47,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        enemy = GameManager.instance.characters[1 - CharacterID];
+        enemy = GameManager.Instance.characters[1 - CharacterID];
 
         WeaponList[0].gameObject.SetActive(true);
         for (int i = 1; i < WeaponList.Length; i++)
@@ -63,10 +63,10 @@ public class Character : MonoBehaviour
     // 피격당했을 때
     public void OnHit(int damage)
     {
-        if (CharacterID != GameManager.instance.turn) // 플레이어가 때린 거면
+        if (CharacterID != GameManager.Instance.turn) // 플레이어가 때린 거면
         {
             // 현재 체력에 맞춰 점수 획득
-            GameManager.instance.ScoreUp(Health);
+            GameManager.Instance.ScoreUp(Health);
         }
         Health -= damage;
     }
