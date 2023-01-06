@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
         playerRigidbody.angularVelocity = Vector3.zero;
         enemyRigidbody.velocity = Vector3.zero;
         enemyRigidbody.angularVelocity = Vector3.zero;
+        enemy.IsWalking = false; // TODO: 나중에 AI 추가후 바꿔야함
 
         // rotation
         // raycast
@@ -48,7 +49,17 @@ public class PlayerControl : MonoBehaviour
 
         // move
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        playerRigidbody.velocity = player.moveSpeed * moveDirection.normalized;
+        if (moveDirection == Vector3.zero)
+        {
+            player.IsWalking = false;
+        }
+        else
+        {
+            moveDirection = moveDirection.normalized;
+            player.IsWalking = true;
+        }
+
+        playerRigidbody.velocity = player.moveSpeed * moveDirection;
         //playerRigidbody.angularVelocity = Vector3.zero;
         //playerRigidbody.MovePosition(playerTransform.position + player.moveSpeed * Time.fixedDeltaTime * moveDirection.normalized);
 

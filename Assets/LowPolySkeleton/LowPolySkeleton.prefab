@@ -1533,6 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWarrior: 0
+  moveSpeed: 3
   WeaponList:
   - {fileID: 3759606476808299838}
   enableHit: 0
@@ -1546,12 +1547,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 36
+  m_CollisionDetection: 1
 --- !u!136 &1098741286
 CapsuleCollider:
   m_ObjectHideFlags: 0
