@@ -41,7 +41,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void Awake() 
+    private void Start() 
     {
         animator = GetComponent<Animator>();
         enemy = GameManager.instance.characters[1 - CharacterID];
@@ -49,6 +49,8 @@ public class Character : MonoBehaviour
         WeaponList[0].gameObject.SetActive(true);
         for(int i=1;i<WeaponList.Length;i++)
             WeaponList[i].gameObject.SetActive(false);
+        
+        WeaponIndex = 3;
     }
 
     [ContextMenu("공격")]
@@ -76,7 +78,7 @@ public class Character : MonoBehaviour
     {
         if (!enableHit) return;
         enableHit = false; // 타격 비활성화
-        Debug.Log($"ONHIT!! {CharacterID}");
+        // Debug.Log($"ONHIT!! {CharacterID}");
 
         enemy.OnHit(weapon.Damage);
     }
