@@ -17,6 +17,5 @@ public class AI : MonoBehaviour
         playerNavmesh.isStopped = true;
 
         enemyNavmesh.destination = player.position;
-
     }
 }
