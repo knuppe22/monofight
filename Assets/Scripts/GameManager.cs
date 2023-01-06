@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
 
     public Character Player
     {
-        get { return instance.characters[turn]; }
+        get { return characters[turn]; }
     }
     public Character Enemy
     {
-        get { return instance.characters[1 - turn]; }
+        get { return characters[1 - turn]; }
     }
 
     private void Awake()
@@ -47,9 +47,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentTurnTime -= Time.deltaTime;
+
         if (currentTurnTime < 0)
         {
-            turn = (turn + 1) % 2;
+            turn = 1 - turn;
             currentTurnTime = turnTime;
         }
     }
