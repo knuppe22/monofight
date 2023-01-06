@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
     {
         if (CharacterID != GameManager.instance.turn) { // 플레이어가 때린 거면
             // TODO: 현재 체력에 맞춰 점수 획득
+            GameManager.instance.ScoreUp(Health);
         }
         Health -= damage;
     }

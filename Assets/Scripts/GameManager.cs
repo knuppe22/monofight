@@ -58,6 +58,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ScoreUp(int Health)
+    {
+        int plus=0;
+        if (Health >= 0 && Health < 20)
+        {
+            plus = (int)((-0.5) * Health + 40);
+            score += plus;
+        }
+        else if (Health < 50)
+        {
+            plus = (int)((-1 / 3) * (Health - 20) + 30);
+            score += plus;
+        }
+        else
+        {
+            plus = (int)((-0.2) * Health + 30);
+            score += plus;
+        }
+        // text.text = "Score : " + score.ToString(); // UI에 점수 기록
+    }
+
     void GameOver()
     {
         Debug.Log("게임오버");
