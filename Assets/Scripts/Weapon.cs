@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public abstract string Name {get;}
-    public abstract int Damage {get;}
+    public abstract string Name { get; }
+    public abstract int Damage { get; }
     public virtual int Durability { get; private set; } = 10;
     protected virtual int DurabilityDecrement { get; } = 1;
 
