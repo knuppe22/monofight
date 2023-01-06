@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
-    private bool isWarrior {get;} // 전사인지, 몬스터인지 (inspector)
+    private bool isWarrior; // 전사인지, 몬스터인지 (inspector)
     public int CharacterID => isWarrior ? 0 : 1;
     
     private Weapon weapon;
