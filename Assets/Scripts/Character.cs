@@ -34,6 +34,7 @@ public class Character : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+    [ContextMenu("공격")]
     public void StartAttack()
     {
         animator.SetTrigger("Attack");
@@ -61,4 +62,5 @@ public class Character : MonoBehaviour
     {
         IsWalking = !IsWalking;
     }
+    
 }

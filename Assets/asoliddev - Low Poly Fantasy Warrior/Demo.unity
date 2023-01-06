@@ -477,7 +477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 651ecd2f5d252fe418351ee0116f97a0, type: 2}
 --- !u!81 &1200262101
 AudioListener:
   m_ObjectHideFlags: 0
@@ -552,6 +551,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 34.85, y: 146.1, z: 0}
+--- !u!1 &1892777427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1948535115976630, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
+  m_PrefabInstance: {fileID: 816702921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892777433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892777427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6982dfa87d7ba346a0f83363e4d7692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWarrior: 1
 --- !u!1 &2003544535
 GameObject:
   m_ObjectHideFlags: 0
