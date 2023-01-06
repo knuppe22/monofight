@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float currentTurnTime = 30.0f;
     public int score;
 
+    public GameObject gameOverPopup;
+
     public Character Player
     {
         get { return characters[turn]; }
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
-        // TODO
+        Debug.Log("게임오버");
+        gameOverPopup.SetActive(true);
     }
 }

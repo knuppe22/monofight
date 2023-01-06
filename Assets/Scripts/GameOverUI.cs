@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameOver : MonoBehaviour
+public class GameOverUI : MonoBehaviour
 { 
     public TextMeshProUGUI Text_GameResult;
     public TextMeshProUGUI Text_Best;
@@ -52,7 +51,7 @@ public class GameOver : MonoBehaviour
         */
 
         // 다시 메인씬 로드
-        SceneManager.LoadScene("MainScene");
+        SceneChange.instance.OnLoadMainScene();
     }
 
     public void OnClick_Quit()
