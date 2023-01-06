@@ -21,6 +21,15 @@ public class Character : MonoBehaviour
     }
 
     public int Health {get; private set;} = 100;
+    private bool isWalking = false;
+    public bool IsWalking {
+        get => isWalking;
+        set {
+            isWalking = value;
+            animator.SetBool("IsWalking",value);
+        }
+    }
+
     private void Awake() 
     {
         animator = GetComponent<Animator>();
@@ -41,9 +50,15 @@ public class Character : MonoBehaviour
     }
 
     // 적 타격하는 시점에서 호출되는 함수
-    public void DamageEnemy() {
+    public void DamageEnemy() 
+    {
         var enemy = GameManager.instance.characters[1 - CharacterID];
         // TODO: 거리 계산해서 피격 판정
         enemy.OnHit(weapon.Damage);
+    }
+    [ContextMenu("걷기 토글")]
+    public void ToggleIsWalking() 
+    {
+        IsWalking = !IsWalking;
     }
 }
