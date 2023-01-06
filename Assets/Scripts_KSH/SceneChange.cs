@@ -7,20 +7,20 @@ public class SceneChange : MonoBehaviour
 {
     public void OnLoadStartScene()
     {
-        // ½ºÅ¸Æ® ¾À ·Îµå
+        // ìŠ¤íƒ€íŠ¸ ì”¬ ë¡œë“œ
         SceneManager.LoadScene("Start_KSH");
     }
 
     public void OnLoadMainScene()
     {
-        // ¸ŞÀÎ ¾À ·Îµå
+        // ë©”ì¸ ì”¬ ë¡œë“œ
         //GameObject.Find("GameData").GetComponent<GameSaveData>().LoadData();
         SceneManager.LoadScene("MainScene");
     }
 
     public void OnLoadEndScene()
     {
-        // ¿£µå ¾À ·Îµå
+        // ì—”ë“œ ì”¬ ë¡œë“œ
         SceneManager.LoadScene("End_KSH");
     }
 }

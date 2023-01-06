@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOver : MonoBehaviour
-{
-    /*
-    public Text Text_GameResult;
-    public Text Text_Best;
-    public Text gameOverText;
-    public string gameOverMsg = "";
+{ 
+    public TextMeshProUGUI Text_GameResult;
+    public TextMeshProUGUI Text_Best;
+    public TextMeshProUGUI gameOverText;
 
-    public RuntimeAnimatorController originPlayer;
-    */
+    // public RuntimeAnimatorController originPlayer;
 
     public void Start()
     {
@@ -24,47 +22,37 @@ public class GameOver : MonoBehaviour
     public void Show()
     {
         /*
-        // ÇÃ·¹ÀÌ¾î, UI ºñÈ°¼ºÈ­
+        // í”Œë ˆì´ì–´, UI ë¹„í™œì„±í™”
         GameObject.FindWithTag("Player").GetComponent<Player>().enabled = false;
-        GameObject.FindWithTag("Player").GetComponent<PlayerDesktop>().enabled = false;
         GameObject.Find("JumpBtn").GetComponent<Button>().interactable = false;
         GameObject.Find("Joystick").GetComponent<VariableJoystick>().enabled = false;
+        */
 
-        // Á¡¼ö °è»ê, µ¥ÀÌÅÍ ÀúÀå
-        int score = FindObjectOfType<Score>().Getfinal();
+        // ì ìˆ˜ ê³„ì‚°, ë°ì´í„° ì €ì¥
+       // int score = FindObjectOfType<Score>().Getfinal();
+        int score = 0;
         FindObjectOfType<GameSaveData>().SaveScore(score);
         int best = FindObjectOfType<GameSaveData>().GetMaxScore();
         Text_GameResult.text = "Score : " + score.ToString();
         Text_Best.text = "Best : " + best.ToString();
 
-        if (gameOverText != null)
-        {
-            gameOverText.text = gameOverMsg;
-        }
-        */
     }
 
     public void OnClick_Retry()
     {
         /*
-        // retry ½Ã Á¡¼ö ¸®¼Â
+        // retry ì‹œ ì ìˆ˜ ë¦¬ì…‹
         FindObjectOfType<Score>().Scorereset();
 
-        // ÇÃ·¹ÀÌ¾î »óÅÂ ¸®¼Â
+        // í”Œë ˆì´ì–´ ìƒíƒœ ë¦¬ì…‹
         GameObject player = GameObject.FindWithTag("Player");
-        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         player.GetComponent<Animator>().runtimeAnimatorController = originPlayer;
 
-
-        Time.timeScale = 1f;//Å×½ºÆ®½Å
-        // °ÔÀÓ ÀúÀåµÈ µ¥ÀÌÅÍ ¸®¼Â
-        GameSaveData.isSuperJump = false;
-        GameSaveData.life = 3;
+        Time.timeScale = 1f; 
         */
 
-        // ´Ù½Ã ¸ŞÀÎ¾À ·Îµå
+        // ë‹¤ì‹œ ë©”ì¸ì”¬ ë¡œë“œ
         SceneManager.LoadScene("MainScene");
-        
     }
 
     public void OnClick_Quit()
