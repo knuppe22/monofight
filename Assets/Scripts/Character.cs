@@ -9,7 +9,9 @@ public class Character : MonoBehaviour
     [SerializeField]
     private bool isWarrior; // 전사인지, 몬스터인지 (inspector)
     public int CharacterID => isWarrior ? 0 : 1;
-    
+
+    public float moveSpeed;
+
     private Weapon weapon = new Fist();
     public Weapon Weapon {
         get => weapon;
@@ -21,10 +23,12 @@ public class Character : MonoBehaviour
     }
 
     public int Health {get; private set;} = 100;
+
     private void Awake() 
     {
         animator = GetComponent<Animator>();
     }
+
     public void StartAttack()
     {
         animator.SetTrigger("Attack");
