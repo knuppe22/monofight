@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
 {
+    private Animator animator;
     [SerializeField]
     private bool isWarrior; // 전사인지, 몬스터인지 (inspector)
     public int CharacterID => isWarrior ? 0 : 1;
     
-    private Weapon weapon;
+    private Weapon weapon = new Fist();
     public Weapon Weapon {
         get => weapon;
         set {
@@ -19,18 +21,28 @@ public class Character : MonoBehaviour
     }
 
     public int Health {get; private set;} = 100;
-    
+    private void Awake() 
+    {
+        animator = GetComponent<Animator>();
+    }
     public void StartAttack()
     {
-        // TODO: 애니메이션 시작
+        animator.SetTrigger("Attack");
     }
+
+    // 피격당했을 때
     public void OnHit(int damage)
     {
-        // TODO: 현재 체력에 맞춰 점수 획득
+        if (CharacterID != GameManager.instance.turn) { // 플레이어가 때린 거면
+            // TODO: 현재 체력에 맞춰 점수 획득
+        }
         Health -= damage;
     }
+
+    // 적 타격하는 시점에서 호출되는 함수
     public void DamageEnemy() {
         var enemy = GameManager.instance.characters[1 - CharacterID];
+        // TODO: 거리 계산해서 피격 판정
         enemy.OnHit(weapon.Damage);
     }
 }
