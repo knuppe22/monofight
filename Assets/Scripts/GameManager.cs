@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public Character[] characters;
 
     public int turn = 0;  // 0: 플레이어가 warrior, 1: 플레이어가 monster
-    public float turnTime = 10.0f;
-    public float currentTurnTime = 30.0f;
+    public float turnTime = 20.0f;
+    public float currentTurnTime;
     public int score;
 
     public TextMeshProUGUI score_text;
@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        currentTurnTime = turnTime;
     }
 
     // Update is called once per frame

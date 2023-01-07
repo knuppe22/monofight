@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0.0f) return;
+
         Character player = GameManager.Instance.Player;
         Transform playerTransform = player.transform;
 
