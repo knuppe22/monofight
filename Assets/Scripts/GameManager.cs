@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI score_text;
     public GameObject gameOverPopup;
 
+    public AddScore addscore;
+
     public Character Player
     {
         get { return characters[turn]; }
@@ -61,16 +63,19 @@ public class GameManager : MonoBehaviour
         {
             plus = (int)((-0.5) * health + 40);
             score += plus;
+            addscore.Use(plus);           // 이거 수정
         }
         else if (health < 50)
         {
             plus = (int)((-1 / 3) * (health - 20) + 30);
             score += plus;
+            addscore.Use(plus);
         }
         else
         {
             plus = (int)((-0.2) * health + 30);
             score += plus;
+            addscore.Use(plus);
         }
         score_text.text = "Score : " + score.ToString(); // UI에 점수 기록
     }
