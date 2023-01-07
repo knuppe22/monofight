@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
             WeaponList[weaponIndex].gameObject.SetActive(false);
             WeaponList[value].gameObject.SetActive(true);
             weaponIndex = value;
+            WeaponList[value].OnEquip();
         }
     }
     private Weapon weapon => WeaponList[weaponIndex];
@@ -98,6 +99,7 @@ public class Character : MonoBehaviour
         {
             WeaponIndex = other.GetComponent<DropItems>().id;
             Destroy(other.gameObject);
+            RefreshIndicator();
         }
     }
     [ContextMenu("걷기 토글")]
@@ -116,6 +118,14 @@ public class Character : MonoBehaviour
             bool isBroken = weapon.OnAttack();
             if (isBroken) // 무기 내구도가 다하면 기본무기로 전환
                 WeaponIndex = 0;
+            RefreshIndicator();
         }
+    }
+
+    private void RefreshIndicator()
+    {
+        var wi = GameManager.Instance.wi;
+        wi.Durability = weapon.Durability;
+        wi.WeaponIndex = WeaponIndex;
     }
 }
