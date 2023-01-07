@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Character[] characters;
 
     public int turn = 0;  // 0: 플레이어가 warrior, 1: 플레이어가 monster
-    public float turnTime = 30.0f;
+    public float turnTime = 10.0f;
     public float currentTurnTime = 30.0f;
     public int score;
 
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void ScoreUp(int health)
     {
+        Debug.Log($"ScoreUp({health})");
         int plus = 0;
         if (health >= 0 && health < 20)
         {

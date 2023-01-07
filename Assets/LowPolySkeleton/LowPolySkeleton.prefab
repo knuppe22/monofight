@@ -1432,8 +1432,8 @@ GameObject:
   - component: {fileID: 4972723599130171459}
   - component: {fileID: 2055445302}
   - component: {fileID: 1098741285}
-  - component: {fileID: 1098741286}
   - component: {fileID: 1298303815}
+  - component: {fileID: 1573442677312968626}
   m_Layer: 0
   m_Name: LowPolySkeleton
   m_TagString: Untagged
@@ -1512,20 +1512,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 84
   m_CollisionDetection: 1
---- !u!136 &1098741286
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8172442304542317006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.18
-  m_Height: 1.21
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!195 &1298303815
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1548,6 +1534,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1573442677312968626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172442304542317006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 1.15, z: 0.3}
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!1 &8569649574974592577
 GameObject:
   m_ObjectHideFlags: 0

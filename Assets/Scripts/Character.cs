@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
@@ -17,9 +15,6 @@ public class Character : MonoBehaviour
     
     public Weapon[] WeaponList; // 모든 weapon instance의 리스트 (inspector), 기본 무기는 0
     private int weaponIndex;
-
-    public Image hp_Img; // hp 상태 이미지
-    public TextMeshProUGUI hp_text;
     public int WeaponIndex
     {
         get => weaponIndex;
@@ -61,15 +56,6 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        // 체력 0~1 UI에 표시
-        hp_Img.fillAmount = (float)(Health * 0.01);
-        if (Health > 0)
-            hp_text.text = "(" + Health.ToString() + "/100)";
-        else                                                                                              // 게임오버
-        {
-            hp_text.text = "(0/100)";
-            GameManager.Instance.GameOver();
-        }
     }
 
     [ContextMenu("공격")]
@@ -82,6 +68,9 @@ public class Character : MonoBehaviour
     // 피격당했을 때
     public void OnHit(int damage)
     {
+        if (!enableHit) return;
+        enableHit = false; // 타격 비활성화
+
         if (CharacterID != GameManager.Instance.turn) // 플레이어가 때린 거면
         {
             // 현재 체력에 맞춰 점수 획득
@@ -92,15 +81,7 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Weapon") return;
-        DamageEnemy();
-    }
-    // 적 타격하는 시점에서 호출되는 함수
-    public void DamageEnemy()
-    {
-        if (!enableHit) return;
-        enableHit = false; // 타격 비활성화
-
-        enemy.OnHit(weapon.Damage);
+        OnHit(weapon.Damage); // 적 타격
     }
     [ContextMenu("걷기 토글")]
     public void ToggleIsWalking()
@@ -112,6 +93,7 @@ public class Character : MonoBehaviour
         bool value = (v == 0) ? false : true;
         IsHitting = value;
         weapon.GetComponent<Collider>().enabled = value;
+        enemy.enableHit = value;
 
         if (!value && WeaponIndex != 0) // 공격이 끝나는 시점
         {
@@ -119,6 +101,5 @@ public class Character : MonoBehaviour
             if (isBroken) // 무기 내구도가 다하면 기본무기로 전환
                 WeaponIndex = 0;
         }
-        enemy.enableHit = value;
     }
 }
