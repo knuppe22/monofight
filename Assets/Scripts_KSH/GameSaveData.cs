@@ -7,17 +7,22 @@ public class GameSaveData : MonoBehaviour
     // PlayerPrefs에 저장
     public int maxScore = 0;
 
-    void Start()
+    // singleton
+    private static GameSaveData instance = null;
+    public static GameSaveData Instance => instance;
+
+    private void Awake()
     {
-        var obj = FindObjectsOfType<GameSaveData>();
-        if (obj.Length == 1)
+        if (instance == null)
         {
-            DontDestroyOnLoad(gameObject);
+            instance = this;
         }
-        else
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadData()

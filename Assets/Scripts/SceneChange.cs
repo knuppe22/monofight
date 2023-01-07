@@ -31,8 +31,8 @@ public class SceneChange : MonoBehaviour
 
     public void OnLoadMainScene()
     {
-        // 메인 씬 로드
-        //GameObject.Find("GameData").GetComponent<GameSaveData>().LoadData();
+        // 데이터 저장, 메인 씬 로드
+        GameSaveData.Instance.LoadData();
         SceneManager.LoadScene("MainScene");
     }
 
