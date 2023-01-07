@@ -10,7 +10,8 @@ public class StartUI : MonoBehaviour
     public TextMeshProUGUI highScore2_text;
     public TextMeshProUGUI highScore3_text;
 
-
+    public GameObject howtoPlayUI;
+    public GameObject creditsUI;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,26 @@ public class StartUI : MonoBehaviour
     public void ExitHighScore()
     {
         highScoreUI.SetActive(false);
+    }
+
+    public void ViewHowtoPlay()
+    {
+        howtoPlayUI.SetActive(true);
+    }
+
+    public void ExitHowtoPlay()
+    {
+        howtoPlayUI.SetActive(false);
+    }    
+
+    public void ViewCredits()
+    {
+        creditsUI.SetActive(true);
+    }
+
+    public void ExitCredits()
+    {
+        creditsUI.SetActive(false);
     }
 
     public void ExitGame()
