@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
             velocity = player.moveSpeed * velocity.normalized;
         }
 
-        if (player.IsHitting) return;
+        if (player.IsHitting >= 2) return;
 
         // rotation
         // raycast
@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
         Character enemy = GameManager.Instance.Enemy;
         Rigidbody enemyRigidbody = enemy.GetComponent<Rigidbody>();
 
-        if (player.IsHitting)
+        if (player.IsHitting >= 2)
         {
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.angularVelocity = Vector3.zero;
