@@ -10,6 +10,14 @@ public class InGameUI : MonoBehaviour
     public TextMeshProUGUI[] hpText;
     public GameObject help_panel;
 
+    public Image[] holdingWeapons;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +34,7 @@ public class InGameUI : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         }
+        ChangeHaveWeaponUI();
     }
     public void OnClick_Help()
     {
@@ -36,4 +45,20 @@ public class InGameUI : MonoBehaviour
     {
         help_panel.SetActive(false);
     }
+
+    void ChangeHaveWeaponUI()
+    {
+        for (int i = 0; i < holdingWeapons.Length; i++)
+        {
+            Color color = holdingWeapons[i].color;
+
+            if (i == GameManager.Instance.characters[0].WeaponIndex)
+                color.a = 0.0f;
+            else
+                color.a = 0.75f;
+            holdingWeapons[i].color = color;
+        }
+    }
+
+
 }
