@@ -46,6 +46,8 @@ public class PlayerControl : MonoBehaviour
         enemyRigidbody.angularVelocity = Vector3.zero;
         enemy.IsWalking = false; // TODO: 나중에 AI 추가후 바꿔야함
 
+        if (player.IsHitting) return;
+
         // rotation
         // raycast
         // TODO: 맵 밖으로는 raycast 안됨, raycast용 안보이는 plane을 사용해야함
