@@ -30,7 +30,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButton("Fire1"))
+        {
+            GameManager.Instance.Player.StartAttack();
+        }
     }
 
     private void FixedUpdate()
