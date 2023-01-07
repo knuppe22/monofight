@@ -5,7 +5,6 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public GameManager gm;
     public TextMeshProUGUI timer;
     float currentTime;
     int timerTime;
@@ -18,7 +17,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime = gm.currentTurnTime;
+        currentTime = GameManager.Instance.currentTurnTime;
         timerTime = (int)currentTime; 
         if(timerTime <= 0)
         {
