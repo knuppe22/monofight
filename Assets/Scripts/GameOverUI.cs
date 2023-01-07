@@ -28,10 +28,9 @@ public class GameOverUI : MonoBehaviour
         */
 
         // 점수 계산, 데이터 저장
-       // int score = FindObjectOfType<Score>().Getfinal();
         int score = GameManager.Instance.score;
-        FindObjectOfType<GameSaveData>().SaveScore(score);
-        int best = FindObjectOfType<GameSaveData>().GetMaxScore();
+        GameSaveData.Instance.SaveScore(score);
+        int best = GameSaveData.Instance.GetMaxScore();
         Text_GameResult.text = "Score : " + score.ToString();
         Text_Best.text = "Best : " + best.ToString();
 
@@ -47,8 +46,9 @@ public class GameOverUI : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         player.GetComponent<Animator>().runtimeAnimatorController = originPlayer;
 
-        Time.timeScale = 1f; 
+        
         */
+        Time.timeScale = 1f; 
 
         // 다시 메인씬 로드
         SceneChange.Instance.OnLoadMainScene();

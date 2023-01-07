@@ -11,8 +11,7 @@ public class StartScene : MonoBehaviour
 
     void Start()
     {
-        maxScore = GameObject.Find("GameData").GetComponent<GameSaveData>().GetMaxScore();
-        score.text = "Max Score : " + maxScore.ToString();
+        maxScore = GameSaveData.Instance.GetMaxScore();
     }
 
     void Update()
