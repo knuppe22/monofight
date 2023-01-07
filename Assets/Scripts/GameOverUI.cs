@@ -53,6 +53,7 @@ public class GameOverUI : MonoBehaviour
     public void OnClick_Menu()
     {
         GameManager.Instance.score = 0;
+        Time.timeScale = 1f;
         SceneChange.Instance.OnLoadStartScene();
     }
 }
