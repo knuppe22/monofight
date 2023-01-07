@@ -35,11 +35,4 @@ public class SceneChange : MonoBehaviour
         GameSaveData.Instance.LoadData();
         SceneManager.LoadScene("2InGameScene");
     }
-/*
-    public void OnLoadEndScene()
-    {
-        // 엔드 씬 로드
-        SceneManager.LoadScene("End_KSH");
-    }
-*/
 }
