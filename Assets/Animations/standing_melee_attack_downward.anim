@@ -129865,7 +129865,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 1.3333334
+  - time: 1.0333333
     functionName: SetIsHitting
     data: 
     objectReferenceParameter: {fileID: 0}
