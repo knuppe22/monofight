@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         currentTurnTime -= Time.deltaTime;
 
-        if (currentTurnTime < 0)
+        if (currentTurnTime < 0 && Player.IsHitting <= 0 && Enemy.IsHitting <= 0)
         {
             turn = 1 - turn;
             currentTurnTime = turnTime;
