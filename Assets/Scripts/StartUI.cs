@@ -5,10 +5,11 @@ using UnityEngine;
 public class StartUI : MonoBehaviour
 {
     public GameObject highScoreUI;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // TODO: high score 불러오는 기능
     }
 
     // Update is called once per frame
@@ -17,17 +18,17 @@ public class StartUI : MonoBehaviour
         
     }
 
-    public void viewHighScore()
+    public void ViewHighScore()
     {
         highScoreUI.SetActive(true);
     }
 
-    public void exitHighScore()
+    public void ExitHighScore()
     {
         highScoreUI.SetActive(false);
     }
 
-    public void exitGame()
+    public void ExitGame()
     {
         Application.Quit();
     }
