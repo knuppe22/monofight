@@ -88,7 +88,7 @@ public class AI : MonoBehaviour
 
     IEnumerator OnAttack()
     {
-        while (!Rst && enemy.IsHitting) // 공격중이면
+        while (!Rst && enemy.IsHitting >= 1) // 공격중이면
         {
             yield return null;
         }

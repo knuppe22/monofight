@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     public abstract string Name { get; }
     public abstract int Damage { get; }
     public virtual int MaxDurability { get; private set; } = 10;
-    public virtual int Durability { get; private set; } = 10;
+    public virtual int Durability { get; private set; }
     protected virtual int DurabilityDecrement { get; } = 1;
 
     public void OnEquip()

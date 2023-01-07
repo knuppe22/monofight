@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
         }
     }
     private Weapon weapon => WeaponList[weaponIndex];
-    public bool IsHitting { get; private set; }
+    public int IsHitting { get; private set; }
     [HideInInspector]
     public bool enableHit = false; // 한 번 공격에 한 번만 맞게 하기 위해 설정하는 flag
 
@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
     [ContextMenu("공격")]
     public void StartAttack()
     {
-        if (/*CharacterID != GameManager.Instance.turn ||*/ IsHitting) return;
+        if (/*CharacterID != GameManager.Instance.turn ||*/ IsHitting >= 2) return;
         transform.LookAt(enemy.transform);
         animator.SetTrigger("Attack");
     }
@@ -84,7 +84,7 @@ public class Character : MonoBehaviour
     {
         if (other.tag == "Weapon")
         {
-            OnHit(weapon.Damage); // 적 타격
+            OnHit(enemy.weapon.Damage); // 적 타격
         }
         else if (
             other.tag == "DropItems" &&
@@ -103,12 +103,11 @@ public class Character : MonoBehaviour
     }
     public void SetIsHitting(int v)
     {
-        bool value = (v == 0) ? false : true;
-        IsHitting = value;
-        weapon.GetComponent<Collider>().enabled = value;
-        enemy.enableHit = value;
+        IsHitting = v;
+        weapon.GetComponent<Collider>().enabled = v >= 2;
+        enemy.enableHit = v >= 2;
 
-        if (!value && WeaponIndex != 0) // 공격이 끝나는 시점
+        if (v <= 0 && WeaponIndex != 0) // 공격이 끝나는 시점
         {
             bool isBroken = weapon.OnAttack();
             if (isBroken) // 무기 내구도가 다하면 기본무기로 전환
