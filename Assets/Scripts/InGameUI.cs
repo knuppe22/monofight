@@ -8,6 +8,7 @@ public class InGameUI : MonoBehaviour
 {
     public Image[] hpImg; // hp 상태 이미지
     public TextMeshProUGUI[] hpText;
+    public GameObject help_panel;
 
     // Update is called once per frame
     void Update()
@@ -25,5 +26,14 @@ public class InGameUI : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         }
+    }
+    public void OnClick_Help()
+    {
+        help_panel.SetActive(true);
+    }
+
+    public void OnClick_Exit()
+    {
+        help_panel.SetActive(false);
     }
 }
