@@ -89,7 +89,7 @@ public class Character : MonoBehaviour
     {
         if (other.tag == "Weapon")
         {
-            OnHit(enemy.weapon.Damage); // 적 타격
+            OnHit(GameManager.Instance.turn == 0 ? enemy.weapon.Damage : 15); // 적 타격
         }
         else if (
             other.tag == "DropItems" &&
@@ -113,7 +113,7 @@ public class Character : MonoBehaviour
         weapon.GetComponent<Collider>().enabled = v >= 2;
         enemy.enableHit = v >= 2;
 
-        if (v <= 0 && WeaponIndex != 0) // 공격이 끝나는 시점
+        if (v <= 0 && WeaponIndex != 0 && CharacterID == GameManager.Instance.turn) // 공격이 끝나는 시점
         {
             bool isBroken = weapon.OnAttack();
             if (isBroken) // 무기 내구도가 다하면 기본무기로 전환
@@ -124,6 +124,7 @@ public class Character : MonoBehaviour
 
     private void RefreshIndicator()
     {
+        if (!isWarrior) return;
         var wi = GameManager.Instance.wi;
         wi.Durability = weapon.Durability;
         wi.WeaponIndex = WeaponIndex;
