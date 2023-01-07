@@ -56,12 +56,12 @@ public class GameManager : MonoBehaviour
         {
             turn = 1 - turn;
             currentTurnTime = turnTime;
+            GetComponent<AI>().Rst = true;
         }
     }
 
     public void ScoreUp(int health)
     {
-        Debug.Log($"ScoreUp({health})");
         int plus = 0;
         if (health >= 0 && health < 20)
         {
