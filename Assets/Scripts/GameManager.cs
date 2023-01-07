@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Character[] characters;
 
     public int turn = 0;  // 0: 플레이어가 warrior, 1: 플레이어가 monster
-    public float turnTime = 30.0f;
+    public float turnTime = 10.0f;
     public float currentTurnTime = 30.0f;
     public int score;
 
