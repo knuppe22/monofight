@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public float currentTurnTime = 30.0f;
     public int score;
 
+    public TextMeshProUGUI score_text;
     public GameObject gameOverPopup;
 
     public Character Player
@@ -78,10 +80,10 @@ public class GameManager : MonoBehaviour
             plus = (int)((-0.2) * health + 30);
             score += plus;
         }
-        // text.text = "Score : " + score.ToString(); // UI에 점수 기록
+        score_text.text = "Score : " + score.ToString(); // UI에 점수 기록
     }
 
-    void GameOver()
+    public void GameOver()
     {
         Debug.Log("게임오버");
         gameOverPopup.SetActive(true);
