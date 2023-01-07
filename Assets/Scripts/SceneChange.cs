@@ -33,7 +33,7 @@ public class SceneChange : MonoBehaviour
     {
         // 데이터 저장, 메인 씬 로드
         GameSaveData.Instance.LoadData();
-        SceneManager.LoadScene("InGameScene");
+        SceneManager.LoadScene("2InGameScene");
     }
 /*
     public void OnLoadEndScene()

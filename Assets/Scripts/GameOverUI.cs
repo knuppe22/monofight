@@ -8,7 +8,6 @@ public class GameOverUI : MonoBehaviour
 { 
     public TextMeshProUGUI Text_GameResult;
     public TextMeshProUGUI Text_Best;
-    public TextMeshProUGUI gameOverText;
 
     // public RuntimeAnimatorController originPlayer;
 
@@ -32,30 +31,28 @@ public class GameOverUI : MonoBehaviour
         GameSaveData.Instance.SaveScore(score);
         int best = GameSaveData.Instance.GetMaxScore();
         Text_GameResult.text = "Score : " + score.ToString();
-        Text_Best.text = "Best : " + best.ToString();
-
+        Text_Best.text = "High Score : " + best.ToString();
     }
 
     public void OnClick_Retry()
     {
         // retry 시 점수 리셋
         GameManager.Instance.score = 0;
+
         /*
-
         // 플레이어 상태 리셋
-        GameObject player = GameObject.FindWithTag("Player");
         player.GetComponent<Animator>().runtimeAnimatorController = originPlayer;
-
-        
         */
+
         Time.timeScale = 1f; 
 
         // 다시 메인씬 로드
         SceneChange.Instance.OnLoadMainScene();
     }
 
-    public void OnClick_Quit()
+    public void OnClick_Menu()
     {
-        Application.Quit();
+        GameManager.Instance.score = 0;
+        SceneChange.Instance.OnLoadStartScene();
     }
 }
