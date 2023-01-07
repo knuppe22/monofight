@@ -10,9 +10,9 @@ public class Character : MonoBehaviour
     private bool isWarrior; // 전사인지, 몬스터인지 (inspector)
     public int CharacterID => isWarrior ? 0 : 1;
     private Character enemy;
-    
+
     public float moveSpeed;
-    
+
     public Weapon[] WeaponList; // 모든 weapon instance의 리스트 (inspector), 기본 무기는 0
     private int weaponIndex;
     public int WeaponIndex
@@ -80,8 +80,19 @@ public class Character : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Weapon") return;
-        OnHit(weapon.Damage); // 적 타격
+        if (other.tag == "Weapon")
+        {
+            OnHit(weapon.Damage); // 적 타격
+        }
+        else if (
+            other.tag == "DropItems" &&
+            CharacterID == GameManager.Instance.turn &&
+            CharacterID == 0
+            )
+        {
+            WeaponIndex = other.GetComponent<DropItems>().id;
+            Destroy(other.gameObject);
+        }
     }
     [ContextMenu("걷기 토글")]
     public void ToggleIsWalking()
