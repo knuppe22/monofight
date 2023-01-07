@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
@@ -15,6 +17,9 @@ public class Character : MonoBehaviour
     
     public Weapon[] WeaponList; // 모든 weapon instance의 리스트 (inspector), 기본 무기는 0
     private int weaponIndex;
+
+    public Image hp_Img; // hp 상태 이미지
+    public TextMeshProUGUI hp_text;
     public int WeaponIndex
     {
         get => weaponIndex;
@@ -52,6 +57,19 @@ public class Character : MonoBehaviour
         WeaponList[0].gameObject.SetActive(true);
         for (int i = 1; i < WeaponList.Length; i++)
             WeaponList[i].gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // 체력 0~1 UI에 표시
+        hp_Img.fillAmount = (float)(Health * 0.01);
+        if (Health > 0)
+            hp_text.text = "(" + Health.ToString() + "/100)";
+        else                                                                                              // 게임오버
+        {
+            hp_text.text = "(0/100)";
+            GameManager.Instance.GameOver();
+        }
     }
 
     [ContextMenu("공격")]
