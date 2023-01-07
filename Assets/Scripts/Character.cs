@@ -52,13 +52,12 @@ public class Character : MonoBehaviour
         WeaponList[0].gameObject.SetActive(true);
         for (int i = 1; i < WeaponList.Length; i++)
             WeaponList[i].gameObject.SetActive(false);
-        
-        WeaponIndex = 3;
     }
 
     [ContextMenu("공격")]
     public void StartAttack()
     {
+        if (CharacterID != GameManager.Instance.turn || IsHitting) return;
         animator.SetTrigger("Attack");
     }
 
@@ -82,7 +81,6 @@ public class Character : MonoBehaviour
     {
         if (!enableHit) return;
         enableHit = false; // 타격 비활성화
-        // Debug.Log($"ONHIT!! {CharacterID}");
 
         enemy.OnHit(weapon.Damage);
     }
