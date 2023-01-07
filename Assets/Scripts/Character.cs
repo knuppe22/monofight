@@ -44,7 +44,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         enemy = GameManager.Instance.characters[1 - CharacterID];
@@ -61,7 +61,8 @@ public class Character : MonoBehaviour
     [ContextMenu("공격")]
     public void StartAttack()
     {
-        if (CharacterID != GameManager.Instance.turn || IsHitting) return;
+        if (/*CharacterID != GameManager.Instance.turn ||*/ IsHitting) return;
+        transform.LookAt(enemy.transform);
         animator.SetTrigger("Attack");
     }
 
@@ -71,6 +72,7 @@ public class Character : MonoBehaviour
         if (!enableHit) return;
         enableHit = false; // 타격 비활성화
 
+        Debug.Log((CharacterID == GameManager.Instance.turn ? "Player" : "Enemy") + $" Damage! {damage}");
         if (CharacterID != GameManager.Instance.turn) // 플레이어가 때린 거면
         {
             // 현재 체력에 맞춰 점수 획득

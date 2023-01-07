@@ -7,7 +7,7 @@ public enum AIState
 {
     Idle,
     Trace,
-    Attak,
+    Attack,
     Die
 }
 
@@ -20,6 +20,8 @@ public class AI : MonoBehaviour
 
     private Character player;
     private Character enemy;
+    [HideInInspector]
+    public bool Rst = false;
 
     void Start()
     {
@@ -30,17 +32,21 @@ public class AI : MonoBehaviour
             characterAgent.speed = character.moveSpeed;
             //characterAgent.stoppingDistance = attackDistance;
         }
+        OnReset();
     }
 
-    void Update()
+    public void OnReset()
     {
-        
+        Debug.Log("OnReset");
+        state = AIState.Idle;
+        Rst = false;
+        OnTraceEnter();
     }
 
     void OnTraceEnter()
     {
-        Character player = GameManager.Instance.Player;
-        Character enemy = GameManager.Instance.Enemy;
+        player = GameManager.Instance.Player;
+        enemy = GameManager.Instance.Enemy;
 
         NavMeshAgent enemyNavmesh = enemy.GetComponent<NavMeshAgent>();
         NavMeshAgent playerNavmesh = player.GetComponent<NavMeshAgent>();
@@ -58,28 +64,35 @@ public class AI : MonoBehaviour
 
     IEnumerator OnTrace()
     {
-        if (true) // 거리가 얼마보다 크면
+        NavMeshAgent enemyNavmesh = enemy.GetComponent<NavMeshAgent>();
+        while (!Rst && (player.transform.position - enemy.transform.position).sqrMagnitude > attackDistance) // 거리가 얼마보다 크면
         {
+            enemyNavmesh.destination = player.transform.position;
             yield return null;
         }
+        if (Rst) OnReset();
+
+        enemyNavmesh.isStopped = true;
 
         // 거리가 얼마 이하이면
-        state = AIState.Attak;
+        state = AIState.Attack;
         OnAttackEnter();
     }
 
     void OnAttackEnter()
     {
         enemy.StartAttack();
+        enemy.SetIsHitting(1);
         StartCoroutine("OnAttack");
     }
 
     IEnumerator OnAttack()
     {
-        if (enemy.IsHitting) // 공격중이면
+        while (!Rst && enemy.IsHitting) // 공격중이면
         {
             yield return null;
         }
+        if (Rst) OnReset();
 
         state = AIState.Idle;
         OnTraceEnter();
