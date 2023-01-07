@@ -2016,8 +2016,8 @@ MonoBehaviour:
   - {fileID: 645780278}
   - {fileID: 1298303812}
   turn: 0
-  turnTime: 5
-  currentTurnTime: 5
+  turnTime: 30
+  currentTurnTime: 30
   score: 0
   score_text: {fileID: 764691958}
   gameOverPopup: {fileID: 1020694124}
