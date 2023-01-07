@@ -28,7 +28,7 @@ public class InGameUI : MonoBehaviour
             else // 게임오버
             {
                 hpText[i].text = "(0/100)";
-                GameObject.Find("GameOverManager").GetComponent<gameOver>().GameOver();
+                GameManager.Instance.GameOver();
             }
         }
     }
