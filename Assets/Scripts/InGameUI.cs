@@ -9,6 +9,7 @@ public class InGameUI : MonoBehaviour
     public Image[] hpImg; // hp 상태 이미지
     public TextMeshProUGUI[] hpText;
     public GameObject help_panel;
+    public GameObject pause_panel;
 
     public Image[] holdingWeapons;
 
@@ -21,6 +22,14 @@ public class InGameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (pause_panel.activeSelf)
+                OnClick_ExitPause();
+            else
+                OnClick_Pause();
+        }
+
         for (int i = 0; i < GameManager.Instance.characters.Length; i++)
         {
             Character character = GameManager.Instance.characters[i];
@@ -44,6 +53,18 @@ public class InGameUI : MonoBehaviour
     public void OnClick_Exit()
     {
         help_panel.SetActive(false);
+    }
+
+    public void OnClick_Pause()
+    {
+        Time.timeScale = 0.0f;
+        pause_panel.SetActive(true);
+    }
+
+    public void OnClick_ExitPause()
+    {
+        pause_panel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     void ChangeHaveWeaponUI()
