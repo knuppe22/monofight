@@ -44,9 +44,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
         enemy = GameManager.Instance.characters[1 - CharacterID];
 
         WeaponList[0].gameObject.SetActive(true);
