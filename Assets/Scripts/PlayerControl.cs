@@ -38,7 +38,6 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("in");
         Character player = GameManager.Instance.Player;
         Transform playerTransform = player.transform;
         Rigidbody playerRigidbody = playerTransform.GetComponent<Rigidbody>();
