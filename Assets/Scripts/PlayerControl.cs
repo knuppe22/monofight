@@ -4,24 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // singleton
-    private static PlayerControl instance = null;
-
     private Vector3 velocity;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     void Update()
     {

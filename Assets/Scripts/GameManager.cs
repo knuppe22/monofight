@@ -39,8 +39,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-       // DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -83,9 +81,9 @@ public class GameManager : MonoBehaviour
         score_text.text = "Score : " + score.ToString(); // UI에 점수 기록
     }
 
-    ////public void GameOver()
-    ////{
-    ////    Debug.Log("게임오버");
-    ////    gameOverPopup.SetActive(true);
-    ////}
+    public void GameOver()
+    {
+        Debug.Log("게임오버");
+        gameOverPopup.SetActive(true);
+    }
 }
