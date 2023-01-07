@@ -26,19 +26,13 @@ public class SceneChange : MonoBehaviour
     public void OnLoadStartScene()
     {
         // 스타트 씬 로드
-        SceneManager.LoadScene("Start_KSH");
+        SceneManager.LoadScene("StartScene");
     }
 
     public void OnLoadMainScene()
     {
         // 데이터 저장, 메인 씬 로드
         GameSaveData.Instance.LoadData();
-        SceneManager.LoadScene("MainScene");
-    }
-
-    public void OnLoadEndScene()
-    {
-        // 엔드 씬 로드
-        SceneManager.LoadScene("End_KSH");
+        SceneManager.LoadScene("InGameScene");
     }
 }
