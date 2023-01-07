@@ -84,7 +84,7 @@ public class Character : MonoBehaviour
     {
         if (other.tag == "Weapon")
         {
-            OnHit(weapon.Damage); // 적 타격
+            OnHit(enemy.weapon.Damage); // 적 타격
         }
         else if (
             other.tag == "DropItems" &&
