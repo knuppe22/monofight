@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  attackDistance: 4
+  attackDistance: 2
   Rst: 0
 --- !u!1 &617319814
 GameObject:
@@ -5321,6 +5321,10 @@ PrefabInstance:
     - target: {fileID: 9129763154345442252, guid: 14a6e1bf441f6484ab5ae656451113c5, type: 3}
       propertyPath: m_Name
       value: StaffItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129763154345442252, guid: 14a6e1bf441f6484ab5ae656451113c5, type: 3}
+      propertyPath: m_TagString
+      value: DropItems
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a6e1bf441f6484ab5ae656451113c5, type: 3}
