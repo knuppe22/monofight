@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI score_text;
     public GameObject gameOverPopup;
 
+    public WeaponIndicator wi;
+
     public Character Player
     {
         get { return characters[turn]; }
