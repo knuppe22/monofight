@@ -41,15 +41,16 @@ public class GameSaveData : MonoBehaviour
         }
     }
 
-    public int GetMaxScore()
+    public int[] GetMaxScores()
     {
+        int[] empty = new int[3];
         if (PlayerPrefs.HasKey("Data"))
         {
             //  return PlayerPrefs.GetInt("maxScore");
-           int highest = GetArray()[0];
+           int[] highest = GetArray();
             return highest;
         }
-        return 0;
+        return empty;
     }
 
     public void SaveScore(int score)

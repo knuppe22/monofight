@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class StartUI : MonoBehaviour
 {
     public GameObject highScoreUI;
+    public TextMeshProUGUI highScore1_text;
+    public TextMeshProUGUI highScore2_text;
+    public TextMeshProUGUI highScore3_text;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,10 @@ public class StartUI : MonoBehaviour
 
     public void ViewHighScore()
     {
+        highScore1_text.text = "Rank 1 : " + GameSaveData.Instance.GetMaxScores()[0];
+        highScore2_text.text = "Rank 2 : " + GameSaveData.Instance.GetMaxScores()[1];
+        highScore3_text.text = "Rank 3 : " + GameSaveData.Instance.GetMaxScores()[2];
+
         highScoreUI.SetActive(true);
     }
 

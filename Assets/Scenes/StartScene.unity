@@ -588,7 +588,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 80
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2055445302, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
 --- !u!1 &325369337
 GameObject:
@@ -930,7 +931,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3023159383671735443, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
 --- !u!1 &456899891
 GameObject:
@@ -1558,6 +1560,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreUI: {fileID: 1894830092}
+  highScore1_text: {fileID: 1905472116}
+  highScore2_text: {fileID: 2031923567}
+  highScore3_text: {fileID: 1884016961}
 --- !u!1 &1187853913
 GameObject:
   m_ObjectHideFlags: 0
