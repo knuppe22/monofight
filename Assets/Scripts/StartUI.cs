@@ -18,6 +18,11 @@ public class StartUI : MonoBehaviour
         
     }
 
+    public void StartGame()
+    {
+        SceneChange.Instance.OnLoadMainScene();
+    }
+
     public void ViewHighScore()
     {
         highScoreUI.SetActive(true);
