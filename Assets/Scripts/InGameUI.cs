@@ -9,12 +9,6 @@ public class InGameUI : MonoBehaviour
     public Image[] hpImg; // hp 상태 이미지
     public TextMeshProUGUI[] hpText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

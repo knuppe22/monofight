@@ -82,7 +82,7 @@ public class AI : MonoBehaviour
     void OnAttackEnter()
     {
         enemy.StartAttack();
-        enemy.SetIsHitting(1);
+        enemy.SetIsHitting(2);
         StartCoroutine("OnAttack");
     }
 

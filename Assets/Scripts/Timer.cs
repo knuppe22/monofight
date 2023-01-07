@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     float currentTime;
     int timerTime;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentTime = 30.0f;
     }

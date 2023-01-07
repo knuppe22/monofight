@@ -11,7 +11,7 @@ public class GameOverUI : MonoBehaviour
 
     // public RuntimeAnimatorController originPlayer;
 
-    public void Start()
+    private void Start()
     {
         Show();
         Time.timeScale = 0f;
