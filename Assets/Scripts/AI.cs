@@ -13,6 +13,9 @@ public class AI : MonoBehaviour
         NavMeshAgent enemyNavmesh = enemy.GetComponent<NavMeshAgent>();
         NavMeshAgent playerNavmesh = player.GetComponent<NavMeshAgent>();
 
+        Animator enemyAnimator = enemy.GetComponent<Animator>();
+        enemyAnimator.SetBool("IsWalking", true);
+
         enemyNavmesh.isStopped = false;
         playerNavmesh.isStopped = true;
 
