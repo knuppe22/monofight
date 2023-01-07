@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         // attack
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1")&& (!EventSystem.current.IsPointerOverGameObject()))
         {
             player.StartAttack();
         }
