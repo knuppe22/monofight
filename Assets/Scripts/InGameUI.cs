@@ -9,10 +9,20 @@ public class InGameUI : MonoBehaviour
     public Image[] hpImg; // hp 상태 이미지
     public TextMeshProUGUI[] hpText;
 
+    public GameObject weapon_0;
+    public GameObject weapon_1;
+    public GameObject weapon_2;
+    public GameObject weapon_3;
+
+    public Image holdingWeapon_0;
+    public Image holdingWeapon_1;
+    public Image holdingWeapon_2;
+    public Image holdingWeapon_3;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,5 +41,56 @@ public class InGameUI : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         }
+        ChangeHaveWeaponUI();
     }
+
+    void ChangeHaveWeaponUI()
+    {
+        if(weapon_0.activeSelf)
+        {
+            var Color0 = holdingWeapon_0.color;
+            Color0.a = 0f;
+            holdingWeapon_0.color = Color0;
+            Color0.a = 0.75f;
+            holdingWeapon_1.color = Color0;
+            holdingWeapon_2.color = Color0;
+            holdingWeapon_3.color = Color0;
+        }
+        else if(weapon_1.activeSelf)
+        {
+            var Color0 = holdingWeapon_0.color;
+            Color0.a = 0f;
+            holdingWeapon_1.color = Color0;
+            Color0.a = 0.75f;
+            holdingWeapon_0.color = Color0;
+            holdingWeapon_2.color = Color0;
+            holdingWeapon_3.color = Color0;
+        }
+        else if(weapon_2.activeSelf)
+        {
+            var Color0 = holdingWeapon_0.color;
+            Color0.a = 0f;
+            holdingWeapon_2.color = Color0;
+            Color0.a = 0.75f;
+            holdingWeapon_0.color = Color0;
+            holdingWeapon_1.color = Color0;
+            holdingWeapon_3.color = Color0;
+        }
+        else if(weapon_3.activeSelf)
+        {
+            var Color0 = holdingWeapon_0.color;
+            Color0.a = 0f;
+            holdingWeapon_3.color = Color0;
+            Color0.a = 0.75f;
+            holdingWeapon_0.color = Color0;
+            holdingWeapon_1.color = Color0;
+            holdingWeapon_2.color = Color0;
+        }
+        else
+        {
+            Debug.Log("not holding anything..?");
+        }
+    }
+
+
 }
