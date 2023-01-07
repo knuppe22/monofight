@@ -29,7 +29,7 @@ public class GameOverUI : MonoBehaviour
         // 점수 계산, 데이터 저장
         int score = GameManager.Instance.score;
         GameSaveData.Instance.SaveScore(score);
-        int best = GameSaveData.Instance.GetMaxScore();
+        int best = GameSaveData.Instance.GetMaxScores()[0];
         Text_GameResult.text = "Score : " + score.ToString();
         Text_Best.text = "High Score : " + best.ToString();
     }

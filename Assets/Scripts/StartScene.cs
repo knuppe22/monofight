@@ -11,7 +11,7 @@ public class StartScene : MonoBehaviour
 
     void Start()
     {
-        maxScore = GameSaveData.Instance.GetMaxScore();
+
     }
 
     void Update()
