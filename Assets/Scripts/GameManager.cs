@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void ScoreUp(int health)
     {
+        Debug.Log($"ScoreUp({health})");
         int plus = 0;
         if (health >= 0 && health < 20)
         {

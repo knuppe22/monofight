@@ -64,6 +64,9 @@ public class Character : MonoBehaviour
     // 피격당했을 때
     public void OnHit(int damage)
     {
+        if (!enableHit) return;
+        enableHit = false; // 타격 비활성화
+
         if (CharacterID != GameManager.Instance.turn) // 플레이어가 때린 거면
         {
             // 현재 체력에 맞춰 점수 획득
@@ -74,15 +77,7 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Weapon") return;
-        DamageEnemy();
-    }
-    // 적 타격하는 시점에서 호출되는 함수
-    public void DamageEnemy()
-    {
-        if (!enableHit) return;
-        enableHit = false; // 타격 비활성화
-
-        enemy.OnHit(weapon.Damage);
+        OnHit(weapon.Damage); // 적 타격
     }
     [ContextMenu("걷기 토글")]
     public void ToggleIsWalking()
@@ -94,6 +89,7 @@ public class Character : MonoBehaviour
         bool value = (v == 0) ? false : true;
         IsHitting = value;
         weapon.GetComponent<Collider>().enabled = value;
+        enemy.enableHit = value;
 
         if (!value && WeaponIndex != 0) // 공격이 끝나는 시점
         {
@@ -101,6 +97,5 @@ public class Character : MonoBehaviour
             if (isBroken) // 무기 내구도가 다하면 기본무기로 전환
                 WeaponIndex = 0;
         }
-        enemy.enableHit = value;
     }
 }
