@@ -25,7 +25,7 @@ public class InGameUI : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             if (pause_panel.activeSelf)
-                OnClick_ExitPause();
+                OnClick_Resume();
             else
                 OnClick_Pause();
         }
@@ -61,10 +61,24 @@ public class InGameUI : MonoBehaviour
         pause_panel.SetActive(true);
     }
 
-    public void OnClick_ExitPause()
+    public void OnClick_Resume()
     {
         pause_panel.SetActive(false);
         Time.timeScale = 1.0f;
+    }
+
+    public void OnClick_Retry()
+    {
+        GameManager.Instance.score = 0;
+        Time.timeScale = 1f;
+        SceneChange.Instance.OnLoadMainScene();
+    }
+
+    public void OnClick_Menu()
+    {
+        GameManager.Instance.score = 0;
+        Time.timeScale = 1f;
+        SceneChange.Instance.OnLoadStartScene();
     }
 
     void ChangeHaveWeaponUI()
