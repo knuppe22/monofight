@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     // singleton
     private static PlayerControl instance = null;
 
+    private Vector3 velocity;
+
     private void Awake()
     {
         if (instance == null)
@@ -23,28 +25,8 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GameManager.Instance.Player.StartAttack();
-        }
-    }
-
-    private void FixedUpdate()
-    {
         Character player = GameManager.Instance.Player;
         Transform playerTransform = player.transform;
-        Rigidbody playerRigidbody = playerTransform.GetComponent<Rigidbody>();
-
-        Character enemy = GameManager.Instance.Enemy;
-        Transform enemyTransform = enemy.transform;
-        Rigidbody enemyRigidbody = enemyTransform.GetComponent<Rigidbody>();
-
-
-        playerRigidbody.velocity = Vector3.zero;
-        playerRigidbody.angularVelocity = Vector3.zero;
-        enemyRigidbody.velocity = Vector3.zero;
-        enemyRigidbody.angularVelocity = Vector3.zero;
-        enemy.IsWalking = false; // TODO: 나중에 AI 추가후 바꿔야함
 
         // rotation
         // raycast
@@ -59,19 +41,31 @@ public class PlayerControl : MonoBehaviour
             playerTransform.rotation = Quaternion.LookRotation(newForward);
         }
 
-        // move
-        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (moveDirection == Vector3.zero)
+        velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if (velocity != Vector3.zero)
         {
-            player.IsWalking = false;
-        }
-        else
-        {
-            moveDirection = moveDirection.normalized;
-            player.IsWalking = true;
+            velocity = player.moveSpeed * velocity.normalized;
         }
 
-        playerRigidbody.velocity = player.moveSpeed * moveDirection;
+        // attack
+        if (Input.GetButtonDown("Fire1"))
+        {
+            player.StartAttack();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Character player = GameManager.Instance.Player;
+        Rigidbody playerRigidbody = player.GetComponent<Rigidbody>();
+
+        Character enemy = GameManager.Instance.Enemy;
+        Rigidbody enemyRigidbody = enemy.GetComponent<Rigidbody>();
+
+        // move
+        player.IsWalking = (velocity.magnitude > 0);
+
+        playerRigidbody.velocity = velocity;
         //playerRigidbody.angularVelocity = Vector3.zero;
         //playerRigidbody.MovePosition(playerTransform.position + player.moveSpeed * Time.fixedDeltaTime * moveDirection.normalized);
 
