@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -910,11 +910,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 70493832140077389, guid: fdbcbf674e3de5d4db8d096a1fe4f69c, type: 3}
   m_PrefabInstance: {fileID: 152650567}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &179370111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7270831723839504878, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
-  m_PrefabInstance: {fileID: 576507617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190642005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,11 +1185,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226951672}
   m_CullTransparentMesh: 1
---- !u!1 &267645051 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7556173390747234510, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
-  m_PrefabInstance: {fileID: 576507617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &273500392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2903,11 +2893,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656108438}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &677209749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 228256183623202736, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
-  m_PrefabInstance: {fileID: 576507617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,14 +4919,11 @@ MonoBehaviour:
   hpText:
   - {fileID: 16593014}
   - {fileID: 310159541}
-  weapon_0: {fileID: 677209749}
-  weapon_1: {fileID: 1797863238}
-  weapon_2: {fileID: 267645051}
-  weapon_3: {fileID: 179370111}
-  holdingWeapon_0: {fileID: 226951674}
-  holdingWeapon_1: {fileID: 370594496}
-  holdingWeapon_2: {fileID: 1580800077}
-  holdingWeapon_3: {fileID: 1188128574}
+  holdingWeapons:
+  - {fileID: 226951674}
+  - {fileID: 370594496}
+  - {fileID: 1580800077}
+  - {fileID: 1188128574}
 --- !u!114 &1417359882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6012,11 +5994,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787477040}
   m_CullTransparentMesh: 1
---- !u!1 &1797863238 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7233880538098068247, guid: f7902c99c75cad34f934860c6b6ddd9e, type: 3}
-  m_PrefabInstance: {fileID: 576507617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1869534306
 PrefabInstance:
   m_ObjectHideFlags: 0

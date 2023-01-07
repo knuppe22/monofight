@@ -9,15 +9,7 @@ public class InGameUI : MonoBehaviour
     public Image[] hpImg; // hp 상태 이미지
     public TextMeshProUGUI[] hpText;
 
-    public GameObject weapon_0;
-    public GameObject weapon_1;
-    public GameObject weapon_2;
-    public GameObject weapon_3;
-
-    public Image holdingWeapon_0;
-    public Image holdingWeapon_1;
-    public Image holdingWeapon_2;
-    public Image holdingWeapon_3;
+    public Image[] holdingWeapons;
 
     // Start is called before the first frame update
     void Start()
@@ -46,49 +38,15 @@ public class InGameUI : MonoBehaviour
 
     void ChangeHaveWeaponUI()
     {
-        if(weapon_0.activeSelf)
+        for (int i = 0; i < holdingWeapons.Length; i++)
         {
-            var Color0 = holdingWeapon_0.color;
-            Color0.a = 0f;
-            holdingWeapon_0.color = Color0;
-            Color0.a = 0.75f;
-            holdingWeapon_1.color = Color0;
-            holdingWeapon_2.color = Color0;
-            holdingWeapon_3.color = Color0;
-        }
-        else if(weapon_1.activeSelf)
-        {
-            var Color0 = holdingWeapon_0.color;
-            Color0.a = 0f;
-            holdingWeapon_1.color = Color0;
-            Color0.a = 0.75f;
-            holdingWeapon_0.color = Color0;
-            holdingWeapon_2.color = Color0;
-            holdingWeapon_3.color = Color0;
-        }
-        else if(weapon_2.activeSelf)
-        {
-            var Color0 = holdingWeapon_0.color;
-            Color0.a = 0f;
-            holdingWeapon_2.color = Color0;
-            Color0.a = 0.75f;
-            holdingWeapon_0.color = Color0;
-            holdingWeapon_1.color = Color0;
-            holdingWeapon_3.color = Color0;
-        }
-        else if(weapon_3.activeSelf)
-        {
-            var Color0 = holdingWeapon_0.color;
-            Color0.a = 0f;
-            holdingWeapon_3.color = Color0;
-            Color0.a = 0.75f;
-            holdingWeapon_0.color = Color0;
-            holdingWeapon_1.color = Color0;
-            holdingWeapon_2.color = Color0;
-        }
-        else
-        {
-            Debug.Log("not holding anything..?");
+            Color color = holdingWeapons[i].color;
+
+            if (i == GameManager.Instance.characters[0].WeaponIndex)
+                color.a = 0.0f;
+            else
+                color.a = 0.75f;
+            holdingWeapons[i].color = color;
         }
     }
 
