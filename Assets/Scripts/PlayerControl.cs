@@ -28,6 +28,12 @@ public class PlayerControl : MonoBehaviour
         Character player = GameManager.Instance.Player;
         Transform playerTransform = player.transform;
 
+        velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if (velocity != Vector3.zero)
+        {
+            velocity = player.moveSpeed * velocity.normalized;
+        }
+
         if (player.IsHitting) return;
 
         // rotation
@@ -41,12 +47,6 @@ public class PlayerControl : MonoBehaviour
             Vector3 newForward = hit.point - playerTransform.position;
             newForward.y = 0;
             playerTransform.rotation = Quaternion.LookRotation(newForward);
-        }
-
-        velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (velocity != Vector3.zero)
-        {
-            velocity = player.moveSpeed * velocity.normalized;
         }
 
         // attack
@@ -63,6 +63,13 @@ public class PlayerControl : MonoBehaviour
 
         Character enemy = GameManager.Instance.Enemy;
         Rigidbody enemyRigidbody = enemy.GetComponent<Rigidbody>();
+
+        if (player.IsHitting)
+        {
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.angularVelocity = Vector3.zero;
+            return;
+        }
 
         // move
         player.IsWalking = (velocity.magnitude > 0);
