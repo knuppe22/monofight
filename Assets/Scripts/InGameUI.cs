@@ -47,12 +47,14 @@ public class InGameUI : MonoBehaviour
     }
     public void OnClick_Help()
     {
+        Time.timeScale = 0.0f;
         help_panel.SetActive(true);
     }
 
     public void OnClick_Exit()
     {
         help_panel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void OnClick_Pause()
