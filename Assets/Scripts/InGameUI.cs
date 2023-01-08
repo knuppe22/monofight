@@ -24,8 +24,11 @@ public class InGameUI : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            if (pause_panel.activeSelf)
+            if (pause_panel.activeSelf || help_panel.activeSelf)
+            {
                 OnClick_Resume();
+                OnClick_Exit();
+            }
             else
                 OnClick_Pause();
         }
